@@ -29,7 +29,6 @@ app = FastAPI(lifespan=lifespan)
 
 @app.post("/sent-two-images")
 async def chat_inference_two_images(req: ChatRequest, img1: ImageRequest, img2: ImageRequest):
-    global session, img_index
     # Read current user query
     current_user_query = req.user_query
     # Read query image 
@@ -65,7 +64,6 @@ async def chat_inference_two_images(req: ChatRequest, img1: ImageRequest, img2: 
 
 @app.post("/sent-one-image")
 async def chat_inference_one_image(req: ChatRequest, img: ImageRequest):
-    global session, img_index
     # Read current user query
     current_user_query = req.user_query
     # Reference indication checking
@@ -117,7 +115,6 @@ async def chat_inference_one_image(req: ChatRequest, img: ImageRequest):
     
 @app.post("/sent-only-text-query")
 async def chat_inference_only_text_query(req: ChatRequest):
-    global session, img_index
     # Read current user query
     current_user_query = req.user_query
     # Open Session history and construct history payload
